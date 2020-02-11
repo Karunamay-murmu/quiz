@@ -83,9 +83,7 @@ const apiCall = () => {
         let i = 0;
         let counter = 1;
 
-        // if (quizData[i].question)
-
-        questionField.textContent = quizData[i].question.replace(/&#039;/gi, "'");
+        questionField.innerHTML = decodeURI(quizData[i].question);
 
         const displayAnswer = () => {
             let answers = [...quizData[i].incorrect_answers, quizData[i].correct_answer]
@@ -99,37 +97,43 @@ const apiCall = () => {
                 }
             }
             if (answers.length === 2) {
-                answersFields[0].textContent = answers[preValue[0]]
-                answersFields[1].textContent = answers[preValue[1]]
+                answersFields[0].innerHTML = answers[preValue[0]]
+                answersFields[1].innerHTML = answers[preValue[1]]
                 answersFields[2].style.display = 'none';
                 answersFields[3].style.display = 'none';
             }
-            answersFields[0].textContent = answers[preValue[0]]
-            answersFields[1].textContent = answers[preValue[1]]
-            answersFields[2].textContent = answers[preValue[2]]
-            answersFields[3].textContent = answers[preValue[3]]
+            answersFields[0].innerHTML = answers[preValue[0]]
+            answersFields[1].innerHTML = answers[preValue[1]]
+            answersFields[2].innerHTML = answers[preValue[2]]
+            answersFields[3].innerHTML = answers[preValue[3]]
         }
         displayAnswer();
 
         let wrong = 0;
         let right = 0;
 
+        let isAnswerWrong = false;
+
         const answerCheck = () => {
             const onClick = e => {
                 if (e.target.textContent === quizData[i].correct_answer) {
                     e.target.style.cssText = 'background-color: rgba(0, 148, 0, .5); border: none; color: white'
                     right++;
-                    rightAnswer.textContent = right;
                 } else {
-                    e.target.style.cssText = 'background-color: rgba(255, 0, 0, .5); border: none; color: white'
+                    e.target.style.cssText = 'background-color: rgba(255, 0, 0, .5); border: none; color: white';
+                    isAnswerWrong = true;
                     wrong++;
-                    wrongAnswer.textContent = wrong;
                 }
                 answersFields.forEach(item => {
                     item.removeEventListener('click', onClick);
                 });
-                if (right + wrong == noOfQuestions) {
 
+                if (isAnswerWrong) {
+                    document.querySelector('#show_correct_answer').innerHTML = `Correct answer is ${quizData[i].correct_answer}`;
+                    isAnswerWrong = false
+                }
+
+                if (right + wrong == noOfQuestions) {
                     const show_results = document.querySelector('.show-results')
                     show_results.style.display = 'initial';
 
@@ -174,8 +178,7 @@ const apiCall = () => {
             i++;
             counter++;
             quesitonCounter.textContent = counter;
-            let quesionCount = noOfQuestions - 1;
-            if (i === quesionCount) {
+            if (i == noOfQuestions - 1) {
                 nextBtn.setAttribute('disabled', true);
             }
             questionField.innerHTML = quizData[i].question;
@@ -185,6 +188,7 @@ const apiCall = () => {
             displayAnswer();
             answerCheck()
 
+            document.querySelector('#show_correct_answer').textContent = '';
         })
     }
 
@@ -192,12 +196,9 @@ const apiCall = () => {
 }
 
 returnHomepage.addEventListener('click', () => {
-    startQuiz.style.display = 'initial';
+    startQuiz.style.display = 'flex';
     quizContainer.style.display = 'none'
-})
-
-document.querySelector('#start-again').addEventListener('click', () => {
-    document.querySelector('#result').style.display = 'none'
+    document.querySelector('#result').style.display = 'none';
 })
 
 

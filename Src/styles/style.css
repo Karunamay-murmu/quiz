@@ -121,6 +121,12 @@ a {
   color: blueviolet;
 }
 
+#container #show_correct_answer {
+  font-weight: 600;
+  color: green;
+  margin-bottom: 20px;
+}
+
 #loading-container {
   display: -webkit-box;
   display: -ms-flexbox;
