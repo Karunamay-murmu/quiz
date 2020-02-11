@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Ubuntu&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    height: 100vh;
+}
+h1,h2,h3{
+    font-family: 'Montserrat';
+    color: #505050;
+}
+p, a, label, input::placeholder, select {
+    font-family: 'Ubuntu';
+    color: #505050;
+}
+a {
+    text-decoration: none;
+    outline: none;
+}
+.buttons {
+    padding: .8rem 1.2rem;
+    font-size: 1rem;
+    font-family: 'Ubuntu';
+    border: 1px solid #505050;
+    border-radius: 5px;
+    background-color: rgba(56%, 56%, 56%, .5);
+    color: white;
+    outline: none;
+}
+.buttons:hover{
+    background: linear-gradient(180deg, rgba(56%, 56%, 56%, .5), rgba(56%, 56%, 56%, 1));
+    color: white;
+}
+.buttons:active{
+    background: rgba(56%, 56%, 56%, 1);
+}
+.center-position{    
+    position: absolute; 
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -30%);
+}
+#container {
+    width: 70%;
+    margin: auto;
+  
+    text-align: center;
+    display: none;
+    #answers {
+        max-width: 30%;
+        margin: auto;
+        .answer {
+            border: 1px solid #707070;
+            border-radius: 5px;
+            padding: 15px 20px;
+            margin-bottom: 20px;
+        }
+        .answer:hover{
+            border-color: #505050;
+            background-color: rgba(56%, 56%, 56%, .1);
+            cursor: context-menu;
+        }
+    }
+    #buttons-div {
+        margin-top: 40px;
+        
+    }
+    #question, .question-counter{
+        margin-bottom: 20px;
+    }
+    .answer-ckeck-counter {
+        margin-bottom: 10px;
+        font-weight: 600;
+    }
+    .right-answer{
+        color: green;
+    }
+    .wrong-answer{
+        color: red;
+    }
+    .pass-mark {
+        margin-top: 20px;
+        font-weight: 600;
+        color: blueviolet;
+    }
+}
+
+#loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .loading-animation {
+        width: 80px;
+        height: 80px;
+        border: 8px solid rgba(56%, 56%, 56%, .5);
+        border-top: 8px solid #707070;
+        border-radius: 50%;
+        animation: animate 1.5s infinite linear;
+        margin-bottom: 20px;
+    }
+    .loading-text {
+        font-size: 1.2rem;
+    }
+}
+#start-quiz {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+    #form-container {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 100%;
+        label {
+            margin: 15px 0;
+            font-size: 1.2rem;
+        }
+        input, select {
+            padding: 10px 5px;
+            outline: none;
+            border: 1px solid #707070;
+            border-radius: 5px;
+        }
+    }
+    #start-btn {
+        margin-top: 20px;
+        color: #505050;
+        letter-spacing: 2px;
+    }
+    #start-btn:hover{
+        color: white;
+    }
+}
+#result {
+    display: none;
+    flex-direction: column;
+    text-align: center;
+    width: 50%;
+    h2, p{
+        margin-bottom: 20px;
+    }
+    h2{
+        font-size: 3.2rem;
+    }
+    p {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+    
+    div {
+        margin-top: 20px;
+    }
+}
+
+@keyframes animate{
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@media only screen and (max-width: 1024px){
+    #answers {
+        max-width: 50% !important;
+    }
+}
+@media only screen and (max-width: 768px){
+    #answers {
+        max-width: 60% !important;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .center-position {
+        min-width: 80%;
+    }
+}
+@media only screen and (max-width: 425px){
+    #answers {
+        max-width: 100% !important;
+    }
+    #question{
+        font-size: 1.5rem;
+    }
+}
+@media only screen and (max-width: 356px) {
+    .center-position {
+        min-width: 100%;
+    }
+}
