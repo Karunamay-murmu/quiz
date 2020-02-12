@@ -43,10 +43,14 @@ a {
     left: 50%;
     transform: translate(-50%, -30%);
 }
+.flex-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 #container {
     width: 70%;
     margin: auto;
-  
     text-align: center;
     display: none;
     #answers {
@@ -94,9 +98,6 @@ a {
 }
 
 #loading-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     .loading-animation {
         width: 80px;
         height: 80px;
@@ -111,9 +112,6 @@ a {
     }
 }
 #start-quiz {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 50%;
     #form-container {
         display: flex;
@@ -142,8 +140,6 @@ a {
 }
 #result {
     display: none;
-    flex-direction: column;
-    text-align: center;
     width: 50%;
     h2, p{
         margin-bottom: 20px;
@@ -158,6 +154,13 @@ a {
     
     div {
         margin-top: 20px;
+    }
+}
+#invalid {
+    display: none;
+    text-align: center;
+    h2 {
+        margin-bottom: 20px;
     }
 }
 

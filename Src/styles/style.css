@@ -69,6 +69,19 @@ a {
           transform: translate(-50%, -30%);
 }
 
+.flex-column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 #container {
   width: 70%;
   margin: auto;
@@ -127,19 +140,6 @@ a {
   margin-bottom: 20px;
 }
 
-#loading-container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 #loading-container .loading-animation {
   width: 80px;
   height: 80px;
@@ -156,16 +156,6 @@ a {
 }
 
 #start-quiz {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   width: 50%;
 }
 
@@ -206,11 +196,6 @@ a {
 
 #result {
   display: none;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  text-align: center;
   width: 50%;
 }
 
@@ -229,6 +214,15 @@ a {
 
 #result div {
   margin-top: 20px;
+}
+
+#invalid {
+  display: none;
+  text-align: center;
+}
+
+#invalid h2 {
+  margin-bottom: 20px;
 }
 
 @-webkit-keyframes animate {

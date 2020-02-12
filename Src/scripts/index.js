@@ -79,6 +79,12 @@ const apiCall = () => {
         const answersFields = document.querySelectorAll('.answer')
 
         quizData = JSON.parse(xhr.response).results;
+        console.log(JSON.parse(xhr.response).response_code)
+        if (JSON.parse(xhr.response).response_code === 1){
+            document.querySelector('#invalid h2').textContent = 'Sorry we don\'t have enough questions for your query';
+            document.querySelector('#invalid').style.display = 'flex';
+            quizContainer.style.display = 'none'
+        }
 
         let i = 0;
         let counter = 1;

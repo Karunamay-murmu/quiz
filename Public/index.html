@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <div id='start-quiz' class="center-position">
+    <div id='start-quiz' class="center-position flex-column">
         <form id='form-container'>
             <label for="Questions">Number Of Questions:</label>
             <input id='no-of-questions' type="Number" min='10' max='50' value='10'
@@ -59,17 +59,22 @@
         </form>
         <button type='submit' id='start-btn' class="start-quiz-btn buttons">Start quiz</button>
     </div>
-    <!-- show loading -->
 
-    <div id="loading-container" class='center-position'>
+    <!-- show for invalid query -->
+    <div id="invalid" class="center-position flex-column">
+        <h2></h2>
+        <button class="buttons" href='./index.html'>Go Back</button>
+    </div>
+    <!--x-- show for invalid query --x-->
+
+    <!-- show loading -->
+    <div id="loading-container" class='center-position flex-column'>
         <div class='loading-animation'></div>
         <p class='loading-text'>setting up the questions for you...</p>     
-    </div>
-    
+    </div>  
     <!--x-- show loading --x-->
 
     <!-- quiz questions -->
-
     <div id="container" class="center-position">
         <h1 id='question'></h1>
         <p class="question-counter">Question <span id='question-counter'>1</span> out of <span id='total_question'></span></p>
@@ -88,8 +93,7 @@
         </div>
         <p class='pass-mark'>Score atleast 50% to pass this quiz test</p>
     </div>
-
-    <div id="result" class="center-position">
+    <div id="result" class="center-position flex-column">
         <h2>Your Result</h2>
         <h2 id='percentage'></h2>
         <p id="passOrNot"></p>
@@ -97,7 +101,6 @@
             <a class="return-homepage buttons" href="./index.html">Start Again</a>
         </div>    
     </div>
-
     <!--x-- quiz questions --x-->
     <script type='text/javascript' src='../Src/scripts/index.js' async></script>
 </body>
